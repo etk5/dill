@@ -56,3 +56,7 @@ Site CSS is scoped to `.klaviyo-form-VphHay` and overrides the provider's defaul
 ## Simplified Contact and consistent footer
 
 Contact is now a single “Say hello” section with Instagram and Etsy links. The unconnected contact-form demo and competing newsletter prompt were removed. All three pages use identical compact footer markup and `.footer-compact` styles: scalloped green edge, cream logo artwork without a box, Maker/Contact links and Instagram/Etsy icons. Newsletter signup remains only in the homepage hero; Klaviyo scripts are loaded only where that embed exists. Browser checks covered footer equality and responsive layout on all pages.
+
+## Eyebrow typography
+
+Added a dedicated eyebrow role: DM Sans 600, 12px/20px, uppercase with 0.12em tracking. `.eyebrow` styles the homepage studio-list label and Maker page label; the `.label` alias remains compatible with older content. Body text, form labels and navigation retain their existing styles. The font is the existing bundled DM Sans variable font.

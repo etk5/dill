@@ -3,6 +3,7 @@
 :root{
  --cream:#f7f2df;--green:#2d542d;--green-deep:#203d20;--lilac:#eae2f3;
  --surface:var(--cream);--text:var(--green);--action:var(--green);--action-hover:var(--green-deep);--on-action:var(--cream);--focus:var(--green-deep);
+ --eyebrow-size:.75rem;--eyebrow-weight:600;--eyebrow-leading:1.6667;--eyebrow-tracking:.12em;
  --font-brand:'Autour One',sans-serif;--font-copy:'DM Sans',sans-serif;
  --display-size:clamp(2.5rem,1.6rem + 3.8vw,4rem);--display-leading:1.2;
  --heading-size:clamp(2rem,1.6rem + 1.6vw,2.5rem);--heading-leading:1.3;
