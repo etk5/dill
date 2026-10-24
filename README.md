@@ -52,3 +52,7 @@ Klaviyo loading now uses the supplied async script tag directly in every page's 
 ## Embedded form presentation
 
 Site CSS is scoped to `.klaviyo-form-VphHay` and overrides the provider's default container, email field, label and button presentation to match the existing cream/green design. A small render adapter suppresses only the exact stock heading “Sign up for our newsletter” while an email field is present. It preserves consent text, validation and post-submit messages; it does not replace submission handlers. Because this uses provider markup, recheck when changing the Klaviyo template. Prefer removing that duplicate heading block in the Klaviyo editor for long-term content ownership. Local representative-markup tests cover inline-style overrides, responsive width, consent visibility and post-submit content; actual live Klaviyo markup remains externally unverified from this environment.
+
+## Simplified Contact and consistent footer
+
+Contact is now a single “Say hello” section with Instagram and Etsy links. The unconnected contact-form demo and competing newsletter prompt were removed. All three pages use identical compact footer markup and `.footer-compact` styles: scalloped green edge, cream logo artwork without a box, Maker/Contact links and Instagram/Etsy icons. Newsletter signup remains only in the homepage hero; Klaviyo scripts are loaded only where that embed exists. Browser checks covered footer equality and responsive layout on all pages.
