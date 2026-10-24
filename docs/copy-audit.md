@@ -37,3 +37,7 @@ The site's styling adapter supports the recommended success heading and does not
 
 ## Remaining content need
 The About page is intentionally brief. A detailed maker biography needs the owner's actual words or facts; do not fill the gap with invented narrative. Product descriptions, prices and care claims remain in Etsy and were not audited here. Historical research/design documents may contain earlier proposals; they are not current customer-facing copy.
+
+## Owner biography supplied after the audit
+
+The owner has now supplied Erica's full biography. maker.html uses that wording verbatim, with “Hi, I'm Erica!” as the page heading and the six supplied paragraphs on the right. It replaces the authorized temporary placeholder. Career, education, pottery process and personal statements here come from Erica; they were not independently researched or invented. The earlier missing-biography limitation no longer applies.
