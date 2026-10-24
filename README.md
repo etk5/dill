@@ -38,3 +38,11 @@ The mock product catalog and invented illustration placeholders have been remove
 The current site has Home, Maker and Contact pages. All Shop navigation points directly to https://www.etsy.com/shop/DillweedandDirt. The internal shop page was removed; Vercel redirects /shop and /shop.html to Etsy for old bookmarks.
 
 The homepage primary CTA leads to the shared footer newsletter form. The cream signup panel sits within the green scalloped footer on all pages. A single newsletter form appears per page; Contact keeps its separate contact-message demo. Newsletter submission still validates locally without storing/sending addresses; connect an approved provider, accurate privacy notice and consent/unsubscribe flow before enabling real subscriptions.
+
+## Klaviyo integration
+
+Newsletter demos have been replaced with the owner-supplied embedded form `VphHay`. `assets/klaviyo-init.js` initializes the supplied public queue and loads Klaviyo.js once per page for public account `VfNGDm`. There is one embed on each page: in the homepage hero and in the Maker/Contact footers. Klaviyo owns field rendering, validation, consent, list selection and subscription outcomes; local demo handlers apply only to the separate Contact message form. The original design's form styles should be configured in Klaviyo, without a second copy of the site's title/subcopy.
+
+Loading/failure text is shown if the embed cannot render (including network blockers). No private key is included. Update form styles and publishing/targeting in Klaviyo; the site provides only the embed mount and surrounding layout.
+
+Local validation covered the supplied account URL, one embed/script per page, absence of demo interception, simulated external load failure/render lifecycle and responsive overflow. The development environment blocked static.klaviyo.com, so the actual remote form and subscription delivery were not verified. After Vercel deployment, verify the form is published and targets the live domain, submit an authorized test address, complete any double opt-in confirmation, and verify membership in the intended Klaviyo list. Publish an accurate privacy notice reflecting the site's actual tracking and subscription behavior before launch.
