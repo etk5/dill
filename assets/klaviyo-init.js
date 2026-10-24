@@ -7,7 +7,7 @@ document.addEventListener('error', event => {
   if (event.target.id !== 'klaviyo-onsite') return;
   onsiteFailed = true;
   document.querySelectorAll('.newsletter-load-status').forEach(status => {
-    if (!status.hidden) status.textContent = 'The signup form couldn’t load. Please reload or check your content blocker.';
+    if (!status.hidden) status.textContent = 'The email signup couldn’t load. Please refresh the page and try again.';
   });
 }, true);
 
@@ -26,9 +26,9 @@ function watchNewsletterEmbeds() {
       tidyInitialSignup(mount);
     }
     observer.observe(mount, {childList: true, subtree: true, characterData: true});
-    if (onsiteFailed) status.textContent = 'The signup form couldn’t load. Please reload or check your content blocker.';
+    if (onsiteFailed) status.textContent = 'The email signup couldn’t load. Please refresh the page and try again.';
     timeout = setTimeout(() => {
-      if (!status.hidden && !onsiteFailed) status.textContent = 'The signup form hasn’t loaded. Please reload or check your content blocker.';
+      if (!status.hidden && !onsiteFailed) status.textContent = 'The email signup is taking longer than expected. Please refresh the page and try again.';
     }, 15000);
     checkRendered();
   });
