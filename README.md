@@ -26,3 +26,9 @@ The prototype pages currently request no indexing. This is not access control: a
 - Connect contact and newsletter providers before launch; never commit private keys. Any future server-side secrets belong in Vercel project environment settings.
 - Keep Etsy as the stock source of truth if that purchase path is selected. Decide how mirrored catalog information is maintained before publishing actual stock claims.
 - For the custom domain, add `dillweedanddirt.store` and `www.dillweedanddirt.store` in Vercel first. Use the exact DNS records Vercel supplies in Squarespace, preserve email records, and verify HTTPS and canonical routing. Do not guess fixed DNS values. Existing domain connection has not been changed.
+
+## Current design/content revision
+
+The header logo is centered between the navigation groups. H1 tops out at 64px (40px mobile); supporting copy uses brand green, with cream reversed copy on green. Primary actions use green pills and a darker-green hover. The footer has a true repeating radial-gradient scalloped top edge.
+
+The mock product catalog and invented illustration placeholders have been removed. Shop currently links to the owner's actual Etsy shop, https://www.etsy.com/shop/DillweedandDirt. Product photos, prices and maker details have not been imported: the research environment could not access Etsy. Do not claim the linked inventory is synchronized. Real product imagery and verified maker copy remain necessary to finish the site's content. Contact/newsletter forms are still explicitly labeled demos and are not connected to delivery services.
