@@ -32,3 +32,9 @@ The prototype pages currently request no indexing. This is not access control: a
 The header logo is centered between the navigation groups. H1 tops out at 64px (40px mobile); supporting copy uses brand green, with cream reversed copy on green. Primary actions use green pills and a darker-green hover. The footer has a true repeating radial-gradient scalloped top edge.
 
 The mock product catalog and invented illustration placeholders have been removed. Shop currently links to the owner's actual Etsy shop, https://www.etsy.com/shop/DillweedandDirt. Product photos, prices and maker details have not been imported: the research environment could not access Etsy. Do not claim the linked inventory is synchronized. Real product imagery and verified maker copy remain necessary to finish the site's content. Contact/newsletter forms are still explicitly labeled demos and are not connected to delivery services.
+
+## Newsletter-first navigation update
+
+The current site has Home, Maker and Contact pages. All Shop navigation points directly to https://www.etsy.com/shop/DillweedandDirt. The internal shop page was removed; Vercel redirects /shop and /shop.html to Etsy for old bookmarks.
+
+The homepage primary CTA leads to the shared footer newsletter form. The cream signup panel sits within the green scalloped footer on all pages. A single newsletter form appears per page; Contact keeps its separate contact-message demo. Newsletter submission still validates locally without storing/sending addresses; connect an approved provider, accurate privacy notice and consent/unsubscribe flow before enabling real subscriptions.
