@@ -65,7 +65,7 @@ function tidyInitialSignup(mount) {
 // subscription from an empty mount or manufacture a success message.
 function styleNewsletterConfirmation(mount) {
   const normalize = element => element.textContent.trim().replace(/\s+/g, ' ').toLowerCase();
-  const isConfirmationTitle = element => /^(thanks|thank you) for subscribing[!.]?$/.test(normalize(element));
+  const isConfirmationTitle = element => /^(?:(?:thanks|thank you) for subscribing|you['’]re on the list)[!.]?$/.test(normalize(element));
   const title = [...mount.querySelectorAll('h1,h2,h3,h4,p,span,div')].find(element =>
     isConfirmationTitle(element) && ![...element.children].some(isConfirmationTitle)
   );
