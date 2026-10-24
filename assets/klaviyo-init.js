@@ -73,8 +73,10 @@ function styleNewsletterConfirmation(mount) {
   const confirmedView = Boolean(title && !emailVisible);
   mount.classList.toggle('newsletter-confirmation', confirmedView);
   mount.querySelectorAll('[data-dd-confirmation-title]').forEach(element => element.removeAttribute('data-dd-confirmation-title'));
+  mount.querySelectorAll('[data-dd-confirmation-heading]').forEach(element => element.removeAttribute('data-dd-confirmation-heading'));
   if (!confirmedView) return false;
   const component = title.closest('[data-testid="form-component"]');
   (component || title).setAttribute('data-dd-confirmation-title', '');
+  (title.closest('h1,h2,h3,h4,p') || title).setAttribute('data-dd-confirmation-heading', '');
   return true;
 }
