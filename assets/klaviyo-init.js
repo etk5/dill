@@ -21,7 +21,8 @@ function watchNewsletterEmbeds() {
       if (!mount.querySelector('input, form, iframe')) return;
       status.hidden = true;
       clearTimeout(timeout);
-      observer.disconnect();
+      // Match the embed to the surrounding design after Klaviyo renders/re-renders.
+      tidyInitialSignup(mount);
     }
     observer.observe(mount, {childList: true, subtree: true});
     if (onsiteFailed) status.textContent = 'The signup form couldn’t load. Please reload or check your content blocker.';
@@ -35,4 +36,26 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', watchNewsletterEmbeds, {once: true});
 } else {
   watchNewsletterEmbeds();
+}
+
+// Hide only Klaviyo's stock duplicate heading, and only during email collection.
+// Consent, validation, links and post-submit confirmation content stay intact.
+function tidyInitialSignup(mount) {
+  const defaultHeading = 'sign up for our newsletter';
+  const normalize = element => element.textContent.trim().replace(/\s+/g, ' ').toLowerCase();
+  mount.querySelectorAll('[data-dd-duplicate-heading]').forEach(element => {
+    element.removeAttribute('data-dd-duplicate-heading');
+  });
+  if (!mount.querySelector('input[type="email"]')) return;
+  mount.querySelectorAll('h1,h2,h3,h4,p,span,div').forEach(element => {
+    if (normalize(element) !== defaultHeading) return;
+    if ([...element.children].some(child => normalize(child) === defaultHeading)) return;
+    const component = element.closest('[data-testid="form-component"]');
+    const target = component && !component.querySelector('input,button,a') ? component : element;
+    target.setAttribute('data-dd-duplicate-heading', '');
+    const row = target.closest('[data-testid="form-row"]');
+    if (row && !row.querySelector('input,button,a') && normalize(row) === defaultHeading) {
+      row.setAttribute('data-dd-duplicate-heading', '');
+    }
+  });
 }
