@@ -60,3 +60,9 @@ Contact is now a single “Say hello” section with Instagram and Etsy links. T
 ## Eyebrow typography
 
 Added a dedicated eyebrow role: DM Sans 600, 12px/20px, uppercase with 0.12em tracking. `.eyebrow` styles the homepage studio-list label and Maker page label; the `.label` alias remains compatible with older content. Body text, form labels and navigation retain their existing styles. The font is the existing bundled DM Sans variable font.
+
+## Current Contact delivery and biography layout
+
+Contact now submits required email/message fields to FormSubmit for the owner-supplied Gmail recipient. See docs/contact-delivery.md for activation and verification steps; no live email delivery has been verified yet. The previous Instagram/Etsy-only contact design is superseded.
+
+Erica's opening biography paragraph now sits under her heading on the left; the remaining five paragraphs stay on the right in original order. The navigation marker uses assets/brand-dots.svg, measured from the four dots on the left of the original logo. Its scale follows the header logo rather than using a generic ellipsis.
