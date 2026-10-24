@@ -7,9 +7,15 @@ document.addEventListener('error', event => {
   if (event.target.id !== 'klaviyo-onsite') return;
   onsiteFailed = true;
   document.querySelectorAll('.newsletter-load-status').forEach(status => {
-    if (!status.hidden) status.textContent = 'The email signup couldn’t load. Please refresh the page and try again.';
+    if (!status.hidden) showNewsletterError(status, 'The email signup couldn’t load. Please refresh the page and try again.');
   });
 }, true);
+
+function showNewsletterError(status, message) {
+  status.classList.remove('newsletter-sr-only');
+  status.textContent = message;
+  status.closest('.newsletter-embed').setAttribute('aria-busy', 'false');
+}
 
 function watchNewsletterEmbeds() {
   document.querySelectorAll('.newsletter-embed').forEach(wrapper => {
@@ -19,16 +25,21 @@ function watchNewsletterEmbeds() {
     const observer = new MutationObserver(checkRendered);
     function checkRendered() {
       const hasConfirmation = styleNewsletterConfirmation(mount);
-      if (!mount.querySelector('input, form, iframe') && !hasConfirmation) return;
+      // Adapt before revealing; an empty form or a lone input is not ready.
+      tidyInitialSignup(mount);
+      const hasControls = mount.querySelector('input[type="email"]') &&
+        mount.querySelector('button:not([aria-label*="Close"])');
+      if (!hasControls && !hasConfirmation) return;
+      wrapper.classList.add('newsletter-ready');
+      wrapper.setAttribute('aria-busy', 'false');
+      mount.removeAttribute('inert');
       status.hidden = true;
       clearTimeout(timeout);
-      // Match the embed to the surrounding design after Klaviyo renders/re-renders.
-      tidyInitialSignup(mount);
     }
     observer.observe(mount, {childList: true, subtree: true, characterData: true});
-    if (onsiteFailed) status.textContent = 'The email signup couldn’t load. Please refresh the page and try again.';
+    if (onsiteFailed) showNewsletterError(status, 'The email signup couldn’t load. Please refresh the page and try again.');
     timeout = setTimeout(() => {
-      if (!status.hidden && !onsiteFailed) status.textContent = 'The email signup is taking longer than expected. Please refresh the page and try again.';
+      if (!status.hidden && !onsiteFailed) showNewsletterError(status, 'The email signup is taking longer than expected. Please refresh the page and try again.');
     }, 15000);
     checkRendered();
   });
