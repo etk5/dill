@@ -1,0 +1,4 @@
+<header><nav class="site-nav" aria-label="Main navigation"><div class="nav-group"><a href="{{ routes.root_url }}">{{ 'content.text_1' | t }}</a><a href="/pages/about">{{ 'content.text_2' | t }}</a></div><a class="brand-logo" href="{{ routes.root_url }}"><img src="{{ 'dillweedlogos_2.png' | asset_url }}" alt="Dillweed & Dirt — home" width="800" height="533"></a><div class="nav-group"><a href="{{ routes.all_products_collection_url }}">{{ 'content.text_3' | t }}</a><a href="/pages/contact">{{ 'content.text_4' | t }}</a></div><a class="cart-link" href="{{ routes.cart_url }}">{{ 'general.cart' | t }} ({{ cart.item_count }})</a></nav></header>
+{% schema %}
+{"name": "Site Header", "settings": []}
+{% endschema %}
