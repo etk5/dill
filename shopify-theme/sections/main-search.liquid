@@ -1,0 +1,4 @@
+<section class="commerce-wrap"><h1>{{ 'general.shop' | t }}</h1>{% paginate search.results by 12 %}{% for result in search.results %}<p><a href="{{ result.url }}">{{ result.title | escape }}</a></p>{% endfor %}{{ paginate | default_pagination }}{% endpaginate %}</section>
+{% schema %}
+{"name": "Main Search", "settings": []}
+{% endschema %}

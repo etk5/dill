@@ -1,0 +1,10 @@
+<section class="contact-simple" aria-labelledby="contact-title"><h1 id="contact-title">{{ section.settings.heading | escape }}</h1><p>{{ section.settings.intro | escape }}</p>
+{% form 'contact', class: 'contact-email-form' %}
+{% if form.posted_successfully? %}<p role="status">{{ 'general.sent' | t }}</p>{% endif %}
+{{ form.errors | default_errors }}
+<div class="contact-field"><label for="contact-email">{{ 'general.email' | t }}</label><input id="contact-email" name="contact[email]" type="email" autocomplete="email" maxlength="254" required value="{{ form.email | escape }}"></div>
+<div class="contact-field"><label for="contact-message">{{ 'general.message' | t }}</label><textarea id="contact-message" name="contact[body]" rows="5" maxlength="5000" required>{{ form.body | escape }}</textarea></div>
+<button class="button" type="submit">{{ 'general.send' | t }}</button>{% endform %}</section>
+{% schema %}
+{"name": "Contact Form", "settings": [{"type": "text", "id": "heading", "label": "Heading", "default": "Get in touch."}, {"type": "text", "id": "intro", "label": "Introduction", "default": "Have a question about the pottery? Send me a note."}]}
+{% endschema %}

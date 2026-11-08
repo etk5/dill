@@ -1,0 +1,5 @@
+<section class="commerce-wrap"><h1>{{ collection.title | escape }}</h1>{% if collection.description != blank %}<div>{{ collection.description }}</div>{% endif %}
+{% paginate collection.products by 12 %}<div class="product-grid">{% for product in collection.products %}<article class="product-card"><a href="{{ product.url }}">{% if product.featured_image %}{{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 500, 700', sizes: '(min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw' }}{% endif %}<h2>{{ product.title | escape }}</h2></a><p>{{ product.price | money_with_currency }}</p>{% unless product.available %}<p>{{ 'general.sold_out' | t }}</p>{% endunless %}</article>{% else %}<p>{{ 'general.new_pieces' | t }} <a href="{{ routes.root_url }}">{{ 'general.newsletter' | t }}</a></p>{% endfor %}</div>{{ paginate | default_pagination }}{% endpaginate %}</section>
+{% schema %}
+{"name": "Main Collection", "settings": []}
+{% endschema %}
