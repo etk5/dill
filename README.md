@@ -66,3 +66,7 @@ Added a dedicated eyebrow role: DM Sans 600, 12px/20px, uppercase with 0.12em tr
 Contact now submits required email/message fields to FormSubmit for the owner-supplied Gmail recipient. See docs/contact-delivery.md for activation and verification steps; no live email delivery has been verified yet. The previous Instagram/Etsy-only contact design is superseded.
 
 Erica's opening biography paragraph now sits under her heading on the left; the remaining five paragraphs stay on the right in original order. The navigation marker uses assets/brand-dots.svg, measured from the four dots on the left of the original logo. Its scale follows the header logo rather than using a generic ellipsis.
+
+## Shopify storefront (proposed)
+
+The new `shop.html` and `assets/shop.{js,css}` connect the existing site design to Shopify's catalog and cart. Header Shop links point to this page, replacing the previous Etsy redirects. The rest of the site and Etsy social links remain. See `docs/shopify-setup.md` for merchant configuration and launch verification. Live Shopify purchase behavior is not yet verified; this branch is intended for preview review before production.

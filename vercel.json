@@ -5,17 +5,5 @@
   "installCommand": null,
   "outputDirectory": ".",
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/shop",
-      "destination": "https://www.etsy.com/shop/DillweedandDirt",
-      "permanent": true
-    },
-    {
-      "source": "/shop.html",
-      "destination": "https://www.etsy.com/shop/DillweedandDirt",
-      "permanent": true
-    }
-  ]
+  "trailingSlash": false
 }
