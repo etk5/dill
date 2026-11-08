@@ -1,4 +1,74 @@
-<header><nav class="site-nav" aria-label="Main navigation"><div class="nav-group"><a href="{{ routes.root_url }}">{{ 'content.text_1' | t }}</a><a href="/pages/about">{{ 'content.text_2' | t }}</a></div><a class="brand-logo" href="{{ routes.root_url }}"><img src="{{ 'dillweedlogos_2.png' | asset_url }}" alt="Dillweed & Dirt — home" width="800" height="533"></a><div class="nav-group"><a href="{{ routes.all_products_collection_url }}">{{ 'content.text_3' | t }}</a><a href="/pages/contact">{{ 'content.text_4' | t }}</a></div><a class="cart-link" href="{{ routes.cart_url }}">{{ 'general.cart' | t }} ({{ cart.item_count }})</a></nav></header>
+<header><nav class="site-nav" aria-label="{{ 'general.navigation' | t }}"><div class="nav-group">{% if section.settings.left_menu != blank %}{% render 'navigation-links', menu: section.settings.left_menu %}{% else %}<a href="{{ section.settings.home_url | default: routes.root_url }}">{{ section.settings.home_label | escape }}</a><a href="{{ section.settings.about_url | default: '/pages/about' }}">{{ section.settings.about_label | escape }}</a>{% endif %}</div><a class="brand-logo" href="{{ routes.root_url }}">{% if settings.logo != blank %}{{ settings.logo | image_url: width: 640 | image_tag: widths: '128, 160, 224, 320, 640', alt: shop.name }}{% else %}<img src="{{ 'dillweedlogos_2.png' | asset_url }}" alt="Dillweed &amp; Dirt" width="800" height="533">{% endif %}</a><div class="nav-group">{% if section.settings.right_menu != blank %}{% render 'navigation-links', menu: section.settings.right_menu %}{% else %}<a href="{{ section.settings.shop_url | default: routes.all_products_collection_url }}">{{ section.settings.shop_label | escape }}</a><a href="{{ section.settings.contact_url | default: '/pages/contact' }}">{{ section.settings.contact_label | escape }}</a>{% endif %}</div>{% if section.settings.show_cart %}<a class="cart-link" href="{{ routes.cart_url }}">{{ 'general.cart' | t }} ({{ cart.item_count }})</a>{% endif %}</nav></header>
 {% schema %}
-{"name": "Site Header", "settings": []}
+{
+  "name": "Header and navigation",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "left_menu",
+      "label": "Left navigation menu",
+      "info": "Optional. Select a menu from Content > Menus to replace the Home and About links."
+    },
+    {
+      "type": "link_list",
+      "id": "right_menu",
+      "label": "Right navigation menu",
+      "info": "Optional. Select a menu to replace the Shop and Contact links."
+    },
+    {
+      "type": "text",
+      "id": "home_label",
+      "label": "Home link label",
+      "default": "Home"
+    },
+    {
+      "type": "url",
+      "id": "home_url",
+      "label": "Home link destination",
+      "info": "Leave empty to keep the original destination."
+    },
+    {
+      "type": "text",
+      "id": "about_label",
+      "label": "About link label",
+      "default": "About"
+    },
+    {
+      "type": "url",
+      "id": "about_url",
+      "label": "About link destination",
+      "info": "Leave empty to keep the original destination."
+    },
+    {
+      "type": "text",
+      "id": "shop_label",
+      "label": "Shop link label",
+      "default": "Shop"
+    },
+    {
+      "type": "url",
+      "id": "shop_url",
+      "label": "Shop link destination",
+      "info": "Leave empty to keep the original destination."
+    },
+    {
+      "type": "text",
+      "id": "contact_label",
+      "label": "Contact link label",
+      "default": "Contact"
+    },
+    {
+      "type": "url",
+      "id": "contact_url",
+      "label": "Contact link destination",
+      "info": "Leave empty to keep the original destination."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "Show cart link",
+      "default": true
+    }
+  ]
+}
 {% endschema %}

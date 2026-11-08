@@ -1,0 +1,7 @@
+{% doc %}
+Applies merchant-editable brand settings while preserving the original defaults.
+{% enddoc %}
+{% style %}
+:root{--dill:{{ settings.brand_green | default: '#2d542d' }};--green:{{ settings.brand_green | default: '#2d542d' }};--dill-dark:{{ settings.brand_green_deep | default: '#203d20' }};--green-deep:{{ settings.brand_green_deep | default: '#203d20' }};--paper:{{ settings.brand_cream | default: '#f7f2df' }};--cream:{{ settings.brand_cream | default: '#f7f2df' }};--lilac:{{ settings.brand_lilac | default: '#d6c5ec' }};--nav-logo-width:{{ settings.logo_width | default: 160 }}px;--display-size:clamp(2.5rem,1.5rem + 3vw,{{ settings.heading_size | default: 64 }}px);{% if settings.heading_font == 'sans' %}--font-brand:'DM Sans',sans-serif;{% endif %}{% if settings.body_font == 'system' %}--font-copy:system-ui,sans-serif;{% endif %}}
+.maker-heading h1{font-size:clamp(40px,4.5vw,{{ settings.heading_size | default: 64 }}px)}
+{% endstyle %}
