@@ -6,5 +6,92 @@
     "theme_author": "Dillweed & Dirt",
     "theme_documentation_url": "https://github.com/etk5/dill",
     "theme_support_url": "https://github.com/etk5/dill/issues"
+  },
+  {
+    "name": "Brand and design",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo",
+        "info": "Leave empty to use the original Dillweed & Dirt artwork."
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Header logo width",
+        "min": 96,
+        "max": 224,
+        "step": 8,
+        "unit": "px",
+        "default": 160
+      },
+      {
+        "type": "color",
+        "id": "brand_green",
+        "label": "Text, buttons and footer",
+        "default": "#2d542d"
+      },
+      {
+        "type": "color",
+        "id": "brand_green_deep",
+        "label": "Button hover",
+        "default": "#203d20"
+      },
+      {
+        "type": "color",
+        "id": "brand_cream",
+        "label": "Cream background",
+        "default": "#f7f2df"
+      },
+      {
+        "type": "color",
+        "id": "brand_lilac",
+        "label": "Lilac background",
+        "default": "#d6c5ec"
+      },
+      {
+        "type": "range",
+        "id": "heading_size",
+        "label": "Desktop heading size",
+        "min": 40,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "default": 64
+      },
+      {
+        "type": "select",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "brand",
+        "options": [
+          {
+            "value": "brand",
+            "label": "Original Autour One"
+          },
+          {
+            "value": "sans",
+            "label": "DM Sans"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "brand",
+        "options": [
+          {
+            "value": "brand",
+            "label": "Original DM Sans"
+          },
+          {
+            "value": "system",
+            "label": "System sans serif"
+          }
+        ]
+      }
+    ]
   }
 ]

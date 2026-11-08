@@ -1,0 +1,7 @@
+{% doc %}
+Renders a selected Shopify menu with up to three navigation levels.
+@param {linklist} menu - Menu selected in the theme editor.
+{% enddoc %}
+{% for link in menu.links %}
+{% if link.links != blank %}<details class="nav-dropdown"><summary>{{ link.title | escape }}</summary><div class="nav-dropdown-panel"><a href="{{ link.url }}">{{ link.title | escape }}</a>{% for child in link.links %}<a href="{{ child.url }}" {% if child.current %}aria-current="page"{% endif %}>{{ child.title | escape }}</a>{% for grandchild in child.links %}<a class="nav-grandchild" href="{{ grandchild.url }}" {% if grandchild.current %}aria-current="page"{% endif %}>{{ grandchild.title | escape }}</a>{% endfor %}{% endfor %}</div></details>{% else %}<a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>{% endif %}
+{% endfor %}

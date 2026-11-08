@@ -6,4 +6,5 @@
 {{ 'tokens.css' | asset_url | stylesheet_tag }}
 {{ 'site.css' | asset_url | stylesheet_tag }}
 {{ 'commerce.css' | asset_url | stylesheet_tag }}
+{% render 'theme-design' %}
 {{ content_for_header }}</head><body><a class="skip" href="#main">{{ 'general.skip' | t }}</a><div class="shell">{% section 'site-header' %}<main id="main">{{ content_for_layout }}</main>{% section 'site-footer' %}</div></body></html>

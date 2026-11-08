@@ -1,4 +1,57 @@
-<section class="maker-intro" aria-labelledby="maker-title"><div class="maker-layout"><div class="maker-heading"><p class="eyebrow">{{ 'content.text_14' | t }}</p><h1 id="maker-title">{{ 'content.text_15' | t }}<br>{{ 'content.text_16' | t }}</h1><p class="maker-lede" data-bio-paragraph>{{ 'content.text_17' | t }}</p></div><div class="maker-story"><p data-bio-paragraph>{{ 'content.text_18' | t }}</p><p data-bio-paragraph>{{ 'content.text_19' | t }}</p><p data-bio-paragraph>{{ 'content.text_20' | t }}</p><p data-bio-paragraph>{{ 'content.text_21' | t }}</p><p data-bio-paragraph>{{ 'content.text_22' | t }}</p></div></div></section>
+<section class="maker-intro" aria-labelledby="maker-title"><div class="maker-layout"><div class="maker-heading"><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h1 id="maker-title">{{ section.settings.heading | escape | newline_to_br }}</h1><p class="maker-lede" data-bio-paragraph>{{ section.settings.intro | escape | newline_to_br }}</p></div><div class="maker-story">{% if section.settings.paragraph_1 != blank %}<p data-bio-paragraph>{{ section.settings.paragraph_1 | escape | newline_to_br }}</p>{% endif %}{% if section.settings.paragraph_2 != blank %}<p data-bio-paragraph>{{ section.settings.paragraph_2 | escape | newline_to_br }}</p>{% endif %}{% if section.settings.paragraph_3 != blank %}<p data-bio-paragraph>{{ section.settings.paragraph_3 | escape | newline_to_br }}</p>{% endif %}{% if section.settings.paragraph_4 != blank %}<p data-bio-paragraph>{{ section.settings.paragraph_4 | escape | newline_to_br }}</p>{% endif %}{% if section.settings.paragraph_5 != blank %}<p data-bio-paragraph>{{ section.settings.paragraph_5 | escape | newline_to_br }}</p>{% endif %}</div></div></section>
+
 {% schema %}
-{"name": "About Maker", "settings": []}
+{
+  "name": "About biography",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The maker"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hi, I'm\nErica!"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Opening biography",
+      "default": "I'm a cat in a human's body, a multidisciplinary designer, and someone who's never quite been able to stay away from clay."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "Biography paragraph 1",
+      "default": "I first got into pottery in college, around the same time I started studying graphic design. Design became my career, while pottery stuck around as one of my longest-running hobbies. I've taken some pretty long breaks over the years, but somehow I always end up back at the wheel."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Biography paragraph 2",
+      "default": "I earned my BFA in Graphic Design from SUNY New Paltz and have spent my career working across arts, technology, and retail. My work has taken me from the Jacob Burns Film Center to my current role as a Senior UX Designer at Tailored Brands. I've always been interested in making things that look good, work well, and make sense to the people using them."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_3",
+      "label": "Biography paragraph 3",
+      "default": "Lately, I've been making more time for pottery and seeing where it takes me. Through Dillweed & Dirt, I make small-batch, wheel-thrown ceramics with interesting shapes, playful colors, and a healthy amount of experimentation. I love trying new glazes and techniques, even if the results aren't always what I had in mind."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_4",
+      "label": "Biography paragraph 4",
+      "default": "That's part of what keeps me coming back to clay. There's always something I haven't tried, something I could do differently, or an idea I want to explore."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_5",
+      "label": "Biography paragraph 5",
+      "default": "Dillweed & Dirt is my little corner of the world for making things, getting my hands dirty, and figuring it out as I go. I hope you find something you like!"
+    }
+  ]
+}
 {% endschema %}
